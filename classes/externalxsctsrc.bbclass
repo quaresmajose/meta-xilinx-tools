@@ -36,10 +36,6 @@ python () {
 
         d.setVar('SRC_URI', ' '.join(local_srcuri))
 
-        if '{SRCPV}' in d.getVar('PV', False):
-            # Dummy value because the default function can't be called with blank SRC_URI
-            d.setVar('SRCPV', '999')
-
         tasks = filter(lambda k: d.getVarFlag(k, "task", True), d.keys())
 
         for task in tasks:
